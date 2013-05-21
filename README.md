@@ -16,7 +16,7 @@ v0.1.1 example for the install:
 theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,ibrowser,cleanup,help,code",
 
 
-FAQs for install & examples:
+FAQs for install plugins & examples:
 
 -http://www.tinymce.com/forum/viewtopic.php?id=3349
 
