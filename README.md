@@ -14,3 +14,10 @@ was inspired by iBrowser, but iFmup do not need phpthumbs, supports php 5, is to
 v0.1.1 example for the install: 
 
 theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,ibrowser,cleanup,help,code",
+
+
+FAQs for install & examples:
+
+-http://www.tinymce.com/forum/viewtopic.php?id=3349
+
+-http://www.tinymce.com/wiki.php/Configuration:plugins
