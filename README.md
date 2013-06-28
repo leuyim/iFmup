@@ -42,35 +42,32 @@ and that is all.
 ///////////////////////////////////////////////////////////////////////////////////////
 here a complete example:
 
-<script type="text/javascript" src="tiny_mce/tiny_mce.js"></script>
-<script type="text/javascript">
-tinyMCE.init({
-        // General options
-        mode : "textareas",
-        language : "es",
-        theme : "advanced",
-        convert_urls : false,
-        relative_urls : false,
-        content_css : "style.css",
-        plugins : "safari,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,ibrowser",
-
-        // Theme options
-        theme_advanced_buttons1 : "newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,formatselect,fontselect,fontsizeselect,|,sub,sup",
-        theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,ibrowser,cleanup,help,code",
-        theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
-        theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,spellchecker,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,|,insertdate,inserttime,preview,|,forecolor,backcolor",
-        theme_advanced_toolbar_location : "top",
-        theme_advanced_toolbar_align : "left",
-        theme_advanced_statusbar_location : "bottom",
-        theme_advanced_resizing : true,
-        spellchecker_languages : "English=en,+Spanish=es",
-
-        // Drop lists for link/image/media/template dialogs
-        template_external_list_url : "lists/template_list.js",
-        external_link_list_url : "lists/link_list.js",
-        external_image_list_url : "lists/image_list.js",
-        media_external_list_url : "lists/media_list.js",
-
-    });
-</script>
-<textarea name="message" rows="20" cols="45" class="mceSimple" style="font-size: 1.1em;">
+<p>&lt;script type=&quot;text/javascript&quot; src=&quot;tiny_mce/tiny_mce.js&quot;&gt;&lt;/script&gt;<br />
+  &lt;script type=&quot;text/javascript&quot;&gt;<br />
+  tinyMCE.init({<br />
+  // General options<br />
+  mode : &quot;textareas&quot;,<br />
+  language : &quot;es&quot;, <br />
+  theme : &quot;advanced&quot;,<br />
+  convert_urls : false,<br />
+  relative_urls : false,<br />
+  content_css : &quot;style.css&quot;,<br />
+  plugins :   &quot;safari,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,ibrowser&quot;,</p>
+<p>        // Theme options<br />
+  theme_advanced_buttons1 :   &quot;newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,formatselect,fontselect,fontsizeselect,|,sub,sup&quot;,<br />
+  theme_advanced_buttons2 :   &quot;cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,ibrowser,cleanup,help,code&quot;,<br />
+  theme_advanced_buttons3 :   &quot;tablecontrols,|,hr,removeformat,visualaid,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen&quot;,<br />
+  theme_advanced_buttons4 :   &quot;insertlayer,moveforward,movebackward,absolute,|,styleprops,|,spellchecker,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,|,insertdate,inserttime,preview,|,forecolor,backcolor&quot;,<br />
+  theme_advanced_toolbar_location : &quot;top&quot;,<br />
+  theme_advanced_toolbar_align : &quot;left&quot;,<br />
+  theme_advanced_statusbar_location : &quot;bottom&quot;,<br />
+  theme_advanced_resizing : true,<br />
+  spellchecker_languages : &quot;English=en,+Spanish=es&quot;,</p>
+<p>        // Drop lists for link/image/media/template dialogs<br />
+  template_external_list_url : &quot;lists/template_list.js&quot;,<br />
+  external_link_list_url : &quot;lists/link_list.js&quot;,<br />
+  external_image_list_url : &quot;lists/image_list.js&quot;,<br />
+  media_external_list_url : &quot;lists/media_list.js&quot;,</p>
+<p>    });<br />
+  &lt;/script&gt;<br />
+  &lt;textarea name=&quot;message&quot; rows=&quot;20&quot; cols=&quot;45&quot; class=&quot;mceSimple&quot; style=&quot;font-size: 1.1em;&quot;&gt;</p>
