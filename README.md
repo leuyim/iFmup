@@ -40,7 +40,8 @@ and that is all.
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
-here a complete example:
+
+HERE A COMPLETE EXAMPLE:
 
 <p>&lt;script type=&quot;text/javascript&quot; src=&quot;tiny_mce/tiny_mce.js&quot;&gt;&lt;/script&gt;<br />
   &lt;script type=&quot;text/javascript&quot;&gt;<br />
