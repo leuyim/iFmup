@@ -247,6 +247,86 @@ The plugin.js will automatically pick up window.location.origin to pass as edito
 - Rely on **error_log** for debugging.
 
 
+# Complete example
+
+```php
+<?php
+ // Codigo PHP para generar token de iBrowser
+    if (!defined('IBROWSER_SHARED_SECRET_KEY')) { // Definir solo si no está ya definida
+        define('IBROWSER_SHARED_SECRET_KEY', "your long frase token here");
+    }
+
+    if (!function_exists('base64_url_encode_local')) {
+        function base64_url_encode_local(string $data): string {
+            return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
+        }
+    }
+    
+    if (!function_exists('generate_ibrowser_access_token_local')) {
+        function generate_ibrowser_access_token_local(string $userContext): string {
+            $payload = json_encode([
+                'ctx' => $userContext,
+                'exp' => time() + 2700, 
+                'nonce' => bin2hex(random_bytes(8))
+            ]);
+            $encodedPayload = base64_url_encode_local($payload);
+            $signature = hash_hmac('sha256', $encodedPayload, IBROWSER_SHARED_SECRET_KEY, true);
+            $encodedSignature = base64_url_encode_local($signature);
+            return $encodedPayload . '.' . $encodedSignature;
+        }
+    }
+    $user_context_identifier = $_COOKIE["REMCURUS"] ?? 'default_user';
+    $accessToken = generate_ibrowser_access_token_local($user_context_identifier);
+    // Fin código PHP para iBrowser
+
+    $tinymce_script_path_root_relative = "/incspt/jscripts/TinyMCE/7.9.1/tinymce.min.js"; 
+    $tinymce_document_base_url_root_relative = "/incspt/jscripts/TinyMCE/7.9.1/";
+    $tinymce_language_url_root_relative = "/incspt/jscripts/TinyMCE/7.9.1/langs/es_MX.js";
+    
+    echo '<script src="' . htmlspecialchars($tinymce_script_path_root_relative) . '"></script>';
+    ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        tinymce.init({
+            selector: 'textarea#contenido',
+            license_key: 'gpl', 
+            language: 'es_MX', 
+            language_url: '<?php echo htmlspecialchars($tinymce_language_url_root_relative); ?>',
+            document_base_url: '<?php echo htmlspecialchars($tinymce_document_base_url_root_relative); ?>', 
+            plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor',
+                'searchreplace', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media', 
+                'table', 'help', 'wordcount', 'ibrowser'
+            ],
+            toolbar: 'undo redo | styles | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | ' +
+                     'bullist numlist outdent indent | link image media ibrowser | ' + 
+                     'forecolor backcolor emoticons | code fullscreen preview | help', 
+            menubar: 'file edit view insert format tools table help',
+            height: 750,
+            image_advtab: true, 
+            media_dimensions: false, 
+            media_live_embeds: true, 
+            paste_as_text: false, 
+            convert_urls: false, 
+            relative_urls: false, 
+            remove_script_host: false, 
+            forced_root_block: 'p',
+            entity_encoding: 'raw', 
+            branding: false,
+            promotion: false,
+            images_upload_url: '<?php echo $image_upload_url_for_tinymce; ?>',
+            images_file_types: 'jpeg,jpg,jpe,jfi,jif,jfif,png,gif,bmp,webp,svg',
+            automatic_uploads: true, 
+            paste_data_images: true, 
+            images_reuse_filename: false,
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+            ibrowser_access_token: "<?php echo htmlspecialchars($accessToken, ENT_QUOTES, 'UTF-8'); ?>",
+            ibrowser_context_identifier: "<?php echo htmlspecialchars($user_context_identifier, ENT_QUOTES, 'UTF-8'); ?>"
+        });
+    });
+    </script>
+```
+
 ---
 
 
