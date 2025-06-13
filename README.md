@@ -252,9 +252,14 @@ The plugin.js will automatically pick up window.location.origin to pass as edito
 ```php
 <?php
  // Codigo PHP para generar token de iBrowser
+
+    //remember to edit exdata.php this lines have to be equal here and in exdata.php
     if (!defined('IBROWSER_SHARED_SECRET_KEY')) { // Definir solo si no está ya definida
         define('IBROWSER_SHARED_SECRET_KEY', "your long frase token here");
     }
+    //REMEMBER TU EDIT the file exdata.php of the plugin with the same line of define('IBROWSER_SHARED_SECRET_KEY', "your long frase token here"); you entered before this line, in the 2 files have to be the same in this one and in exdata.php
+
+    $USERVARIABLE = "default user"; //dont forget to change this, is for the user private gallery. 
 
     if (!function_exists('base64_url_encode_local')) {
         function base64_url_encode_local(string $data): string {
@@ -275,7 +280,7 @@ The plugin.js will automatically pick up window.location.origin to pass as edito
             return $encodedPayload . '.' . $encodedSignature;
         }
     }
-    $user_context_identifier = $_COOKIE["REMCURUS"] ?? 'default_user';
+    $user_context_identifier = $USERVARIABLE ?? 'default_user';
     $accessToken = generate_ibrowser_access_token_local($user_context_identifier);
     // Fin código PHP para iBrowser
 
